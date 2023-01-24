@@ -1,11 +1,15 @@
 
 import PropTypes from 'prop-types';
 import css from '../Filter/Filter.module.css';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'redux/contactSlice';
 
-export function Filter ({onFilter})  {
-
+export function Filter() {
+    
+const dispatch = useDispatch();
+    
 const handleChangeFilter = (event) => {
-    onFilter(event.currentTarget.value)
+    dispatch(setFilter(event.currentTarget.value))
     }
     
     return <label className={css.filterLabel}>Find contacts by Name
